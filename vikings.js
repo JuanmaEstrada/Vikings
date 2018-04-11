@@ -4,7 +4,7 @@
 function Vikingo(nombre, salud, fuerza){
 
 
-        this.nombre = nombre || "Vikings" + Math.round (Math.random()*50+50);
+        this.nombre = nombre || "Vikingo " + Math.round (Math.random()*50+50);
         this.salud = salud || Math.round (Math.random()*50+50);
         this.fuerza = fuerza || Math.round (Math.random()*10+20);
         this.grito ="vamos al valhalla"
@@ -28,6 +28,8 @@ var ejercitoVikingo = function(Vikingo , number){
         var theVinking = new Vikingo()
         ejercito.push(theVinking);
     }
+
+
     return ejercito;
 }
 
@@ -39,13 +41,17 @@ var ejercitoVikingo = function(Vikingo , number){
 //ENTRENAMIENTO VIKINGO-----------------------------------------------------
 
 function entrenar(){
-    var luchadoraleatorio=Math.round (Math.random()*1+10);
 
-    var luchadoraleatoriodos=Math.round (Math.random()*1+10);
+    var luchadoraleatorio=Math.round ((Math.random()*50)+1);
+
+    var luchadoraleatoriodos=Math.round ((Math.random()*50)+1);
+
+    
+    if(luchadoraleatorio==luchadoraleatoriodos){
+
+         var luchadoraleatorio=Math.round ((Math.random()*50)+1);}
 
 do{
-
- 
 
     this.ejercito[luchadoraleatorio].salud -= this.ejercito[luchadoraleatoriodos].fuerza;
     console.log("Ataca "+this.ejercito[luchadoraleatorio].nombre + " con una fuerza de: " +this.ejercito[luchadoraleatorio].fuerza + " le queda de salud: "+this.ejercito[luchadoraleatorio].salud );
@@ -54,18 +60,18 @@ do{
     console.log("Ataca "+this.ejercito[luchadoraleatoriodos].nombre + " con una fuerza de: " +this.ejercito[luchadoraleatoriodos].fuerza + " le queda de salud: "+this.ejercito[luchadoraleatoriodos].salud );
 
 
-}while((this.ejercito[luchadoraleatorio].salud - this.ejercito[luchadoraleatoriodos].fuerza) > 1 && ((this.ejercito[luchadoraleatorio].salud-this.ejercito[luchadoraleatoriodos].fuerza) > 1));
+}while((this.ejercito[luchadoraleatorio].salud - this.ejercito[luchadoraleatoriodos].fuerza) > 1 && ((this.ejercito[luchadoraleatoriodos].salud-this.ejercito[luchadoraleatorio].fuerza) > 1));
 
 
 if (this.ejercito[luchadoraleatorio].salud > this.ejercito[luchadoraleatoriodos].salud){
+    
     console.log("El ganador es: " +this.ejercito[luchadoraleatorio].nombre);
-
 
 }
 
 else if (this.ejercito[luchadoraleatoriodos].salud > this.ejercito[luchadoraleatorio].salud){
+    
     console.log("El ganador es: " +this.ejercito[luchadoraleatoriodos].nombre);
-
 
 }
 
@@ -132,6 +138,7 @@ for(var i=1; i<=num; i++){
    
 }
     if (pueblosajon[contadorsajon].salud <= 0) {
+
         console.log("ha muerto un sajón");
         contadorsajon++;
 
