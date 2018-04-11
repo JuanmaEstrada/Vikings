@@ -18,12 +18,6 @@ var bior = new Vikingo('Bior',75,15);
 //     console.log(this.grito);
 // }
 
-// var contadorLuchador1=0;
-// var contadorLuchador2=0;
-
-
-
-
 //CREAR EJERCITO VIKINGO---------------------------------------------
 
 var ejercito=[];
@@ -112,30 +106,51 @@ var ejercitoSajon = function(Sajon , number){
 }
 
 
-//EL ASALTO EMPIEZA-------------------------------------------------
+//EMPIEZA LA GUERRA-------------------------------------------------
 function guerra(){
-    //ejercitoVikingo(Vikingo,100);
-    //ejercitoSajon(Sajon, 100);
+    ejercitoVikingo(Vikingo,100);
+    ejercitoSajon(Sajon, 100);
 
     console.log("El sol sube.");
     console.log(""+ragnar.grito);
 
-
+var contadorsajon=0;
+var contadorvikingo=0;
 var num=Math.round (Math.random()*3+5);
 
-for(var i=0; i<=num; i++){
+for(var i=1; i<=num; i++){
 
-    while(pueblosajon[0].salud >= 0 && ejercito[0].salud >= 0) {
+    console.log("Turno: "+i);
 
-    pueblosajon[0].salud -= ejercito[0].fuerza; 
-    console.log("Vida sajon: "+pueblosajon[0].salud + " daño vikingo " +ejercito[0].fuerza );  
-    ejercito[0].salud -= pueblosajon[0].fortaleza;
-    console.log("Vida viking" +ejercito[0].salud + " daño sajon "+ pueblosajon[0].fortaleza);  
+    while(pueblosajon[contadorsajon].salud >= 0 && ejercito[contadorvikingo].salud >= 0) {
+
+    pueblosajon[contadorsajon].salud -= ejercito[contadorvikingo].fuerza; 
+    console.log("Vida sajón: "+pueblosajon[contadorsajon].salud + " daño vikingo: " +ejercito[contadorvikingo].fuerza );  
+   
+    ejercito[contadorvikingo].salud -= pueblosajon[contadorsajon].fortaleza;
+    console.log(ejercito[contadorvikingo].nombre+" Vida: " +ejercito[contadorvikingo].salud + " daño sajon: "+ pueblosajon[contadorsajon].fortaleza); 
+   
+}
+    if (pueblosajon[contadorsajon].salud <= 0) {
+        console.log("ha muerto un sajón");
+        contadorsajon++;
+
 
     }
 
+    else if (ejercito[contadorvikingo].salud <= 0) {
+        console.log("ha muerto " + ejercito[contadorvikingo].nombre);
+        contadorvikingo++;
+
+
+    }
+
+    
 }
     console.log("La batalla ha terminado");
+    console.log("Nº de muertos sajones: "+contadorsajon);
+    console.log("Nº de muertos vikingos: "+contadorvikingo);
+
 
 }
-
+//FIN DE LA GUERRA------------------------------------------------
